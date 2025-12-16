@@ -35,42 +35,38 @@ function throttle(fn, wait) {
 
 
 /* ===========================
-   1️⃣ Lenis 부드러운 스크롤 (모바일 최적화 버전)
+   1️⃣ Lenis 부드러운 스크롤 (천천히 + 부드럽게 멈춤)
 =========================== */
 const _isMobile = isMobile();
 const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 
-// ✅ 모바일/iOS 최적화된 Lenis 설정
+// ✅ 부드러운 감속 스크롤 설정
 window.lenis = new Lenis({
-  // 모바일은 짧고 가볍게, PC는 부드럽게
-  duration: _isMobile ? 0.6 : 1.2,
+  // 스크롤 지속 시간 (길수록 천천히)
+  duration: _isMobile ? 1.2 : 1.4,
 
-  // 모바일용 가벼운 easing (계산량 감소)
-  easing: _isMobile
-    ? (t) => t  // 선형 - 가장 가벼움
-    : (t) => 1 - Math.pow(1 - t, 3),
+  // ✅ 부드러운 감속 easing (cubic-bezier 느낌)
+  easing: (t) => 1 - Math.pow(1 - t, 4),  // ease-out-quart
 
-  // ✅ 핵심: 모바일에서도 부드러운 스크롤 활성화
+  // 부드러운 스크롤 활성화
   smooth: true,
-  smoothTouch: _isMobile,  // 모바일에서 터치 스무딩 ON
+  smoothTouch: _isMobile,
 
-  // ✅ iOS 최적화 설정
-  touchMultiplier: isIOS ? 1.5 : 2,  // iOS는 터치 민감도 낮춤
-  wheelMultiplier: 1,
+  // 터치 민감도 (낮을수록 천천히)
+  touchMultiplier: isIOS ? 1.2 : 1.5,
+  wheelMultiplier: 0.8,
 
-  // ✅ 모바일 성능 최적화
-  lerp: _isMobile ? 0.15 : 0.1,  // 모바일은 빠른 반응 (0.1~1, 높을수록 빠름)
+  // ✅ lerp: 낮을수록 더 부드럽게 따라감 (0.05~0.1 권장)
+  lerp: _isMobile ? 0.08 : 0.06,
 
-  // infinite scroll 비활성화
+  // 기타 설정
   infinite: false,
-
-  // 방향 설정
   orientation: 'vertical',
   gestureOrientation: 'vertical',
 
-  // ✅ 네이티브 스크롤바 사용 (iOS 호환성)
+  // iOS 호환
   syncTouch: true,
-  syncTouchLerp: 0.075,
+  syncTouchLerp: 0.05,
 });
 
 const lenis = window.lenis;
