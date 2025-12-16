@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVYBAY</title>
+  <link rel="stylesheet" href="css/main.css">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.3/umd/index.min.js"></script>
+
+
+  <link rel="stylesheet" href="include/sec5.css">
+  <link rel="stylesheet" href="include/sec15.css">
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="intro">
+    <div class="visual-bg">
+      <div class="blur-circle"></div>
+      <div class="blur-circle small"></div>
+    </div>
+
+   <div class="intro-text">
+  <div class="brand-mark">
+    <!-- 🦈 Inline SVG 그대로 붙여넣기 -->
+    <svg id="swoosh-mark" width="25vw" hight="auto" viewBox="0 0 512 512" fill="none" style="overflow:visible" xmlns="http://www.w3.org/2000/svg">
+  <path d="M322.873 168.375L439.873 184.355L409.823 157.675C407.003 152.995 410.163 147.625 415.213 150.485L455.913 185.835C460.133 189.765 459.473 192.805 454.783 195.785C440.173 205.075 419.643 211.595 404.293 220.335C398.943 221.685 396.863 217.055 400.323 213.315C402.873 210.565 422.633 202.435 427.753 199.745C431.043 198.015 435.403 196.095 437.873 193.375C394.653 184.495 350.593 179.885 306.503 177.685C275.463 189.645 241.893 198.675 208.323 199.395C205.483 199.455 200.203 198.265 200.213 194.855C200.243 187.975 215.523 190.765 220.353 190.355C241.293 188.595 261.633 183.585 281.863 178.355L267.473 176.465C190.923 179.505 105.453 182.445 34.1934 213.195C27.9434 215.895 7.92337 228.365 2.59337 225.205C0.133374 223.745 -0.166655 221.795 0.0633453 219.165C1.15335 206.605 28.2134 179.055 37.8534 169.855C42.9734 164.975 49.9934 162.585 50.8634 154.865C55.6834 112.375 41.5234 65.6152 22.3834 28.3452C19.3834 22.5052 13.5333 17.7652 16.6233 10.6152C19.3733 4.24522 40.6534 0.77523 47.3234 0.32523C110.743 -3.91477 169.243 33.8352 206.293 82.4352L208.413 83.3952C244.583 75.1252 281.243 67.1752 318.373 64.3752C336.693 62.9952 380.543 59.8552 394.793 70.9452C416.543 87.8752 380.273 125.745 366.883 137.885C353.983 149.575 338.303 160.385 322.873 168.385V168.375ZM197.873 87.3552C199.183 85.8752 187.113 72.2252 185.383 70.3452C159.633 42.4152 119.933 16.9552 82.0734 10.6552C63.6534 7.58523 41.9934 6.64522 24.9034 14.9252C47.8134 55.3252 61.1234 100.005 59.9234 146.915C59.8834 148.615 59.6134 149.855 58.8634 151.345C60.5234 152.595 72.1334 143.085 74.5534 141.545C112.293 117.405 154.533 98.9852 197.863 87.3452L197.873 87.3552ZM11.8834 214.355C30.2634 205.425 49.1934 197.535 68.8834 191.865C123.783 176.055 182.553 171.805 239.333 168.315L303.913 168.885C334.113 154.085 368.433 131.505 386.293 102.275C391.913 93.0852 398.523 81.3452 385.423 75.3052C364.743 65.7652 297.203 74.7352 272.663 78.6452C189.063 91.9552 79.0834 129.725 23.8934 196.875C22.4634 198.615 10.8233 213.315 11.8733 214.345L11.8834 214.355Z" fill="none" stroke="#223A5E" stroke-width="1" />
+</svg>
+
+
+    <h1 class="glow-text">NAVYBAY</h1>
+  </div>
+
+  <p class="sub">Discover the power of precision,<br>crafted for your perfect swing.</p>
+</div>
+
+<nav class="menu">
+  <!-- PC 메뉴 (그대로 유지) -->
+  <ul class="pc-menu">
+    <li><a target="_blank" href="https://navybay.co.kr">STORE</a></li>
+    <li><a href="#sec2" class="nav-link" data-target=".sec2">PRODUCT</a></li>
+    <li><a href="#sec5" class="nav-link" data-target=".sec5">VISION</a></li>
+    <li><a href="#sec7" class="nav-link" data-target=".sec7">CONNECT</a></li>
+  </ul>
+
+  <!-- 모바일 메뉴 버튼 (●●●) -->
+  <div class="mobile-menu-btn">
+    <span> <img src="images/menulogo.svg" alt=""></span>
+  </div> 
+
+  <!-- 모바일 메뉴 -->
+ <ul class="mobile-menu">
+  <li><a target="_blank" href="https://navybay.co.kr">STORE</a></li>
+  <li><a href="#sec2" class="mobile-nav-link" data-target=".sec2">PRODUCT</a></li>
+  <li><a href="#sec5" class="mobile-nav-link" data-target=".sec5">VISION</a></li>
+  <li><a href="#sec7" class="mobile-nav-link" data-target=".sec7">CONNECT</a></li>
+</ul>
+</nav>
+
+
+
+    <!-- 마우스 따라다니는 유리 효과 -->
+    <div class="cursor-glass"></div>
+  </section>
+
+
+<!-- =========================
+     SEC1 – COMPANY INTRO
+========================= -->
+<section class="sec1">
+  <div class="sec1-floaters" aria-hidden="true">
+    <span class="ball b1"></span>
+    <span class="ball b2"></span>
+    <span class="ball b3"></span>
+    <span class="ball b4"></span>
+    <span class="ball b5"></span>
+    <span class="ball b6"></span>
+  </div>
+
+  <div class="sec1-inner">
+    <!-- 🔵 왼쪽 텍스트 영역 -->
+    <div class="sec1-content">
+      <h2 class="sec1-title pcsec1-title">라이프 스타일의 품격을 높이는, 네이비베이.</h2>
+      <h2 class="mosec1-title">
+        라이프 스타일의 <br>품격을 높이는, 네이비베이.
+      </h2>
+
+      <!-- PC 텍스트 -->
+      <div class="sec1-textbox">
+        <p>
+          네이비베이는 골프용품, 스포츠용품, 생활용품 등 다양한 카테고리의 제품을 통해 <br>
+          건강하고 세련된 <strong>라이프스타일</strong>을 제안하는 종합 유통기업입니다. 우리는 단순히 제품을 <br> 
+          판매하는 것이 아니라, 브랜드와 고객을 연결하고, 일상에 새로운 가치를 더하는 일을 하고 있습니다.
+        </p>
+
+        <p>
+          국내외 다양한 프리미엄 브랜드와의 협업을 통해 단독 모델 및 한정 컬렉션을 선보이며 차별화된  <br>
+          경쟁력을 구축해 왔습니다. 또한 자체 브랜드 <strong>네이비핏(NAVYFIT), 스타시프트(STASHIFT)</strong>를   <br>런칭하여 소비자의 눈높이에 맞춘 기능성과 디자인을 겸비한  독자적인 제품 개발을 이어가고 있습니다.</p>
+          <p>
+       
+       
+     </p>
+      </div>
+
+      <!-- 모바일 텍스트 (기존 mosec1-textbox 유지) -->
+      <div class="mosec1-textbox">
+        <p>
+          네이비베이는 골프용품, 스포츠용품, 생활용품 등 <br> 다양한 카테고리의 제품을 통해 
+          건강하고 세련된<br> 라이프스타일을 제안하는 종합 유통기업입니다. <br> 우리는 단순히 제품을 
+          판매하는 것이 아니라,<br> 브랜드와 고객을 연결하고, 일상에 <br> 새로운 가치를 더하는 일을 하고 있습니다. <br><br>
+        
+
+        
+          국내외 다양한 프리미엄 브랜드와의 협업을 통해 <br>단독 모델 및 한정 컬렉션을 선보이며 차별화된 <br>
+          경쟁력을 구축해 왔습니다. 또한 자체 브랜드 <br>
+          <strong>네이비핏(NAVYFIT), 스타시프트(STASHIFT)</strong> 를<br>런칭하여
+          소비자의 눈높이에 맞춘 기능성과 디자인을 겸비한 
+          독자적인 제품 개발을 이어가고 있습니다.
+        </p>
+      </div>
+      <div class="sec1-mologo">
+        <img src="images/sec1_signw.png" alt="">
+        <img src="images/navylogowhite.svg" alt="">
+      </div>
+    </div>
+
+    <!-- 🔵 오른쪽 이미지 + 로고 (Img + Logo 겹치기) -->
+    <div class="sec1-right">
+      <div class="sec1-visual">
+        <div class="sec1imgbox"> </div>
+        <img draggable="false" src="images/sec1_signw.png" alt="NAVYBAY Signature" class="sec1-img-main">
+        <img draggable="false" src="images/navylogowhite.svg" alt="NAVYBAY Logo" class="sec1-img-logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="sec15-load"></div>
+
+
+  <section class="sec2">
+    <div  class="sec2-mobile-title">
+  <h2>좋은 선택이 <br>
+      좋은 하루를 만든다.</h2>
+  <p>A Good Choice Creates a Better Day</p>
+</div>
+       <div class="lineimg">
+    <div class="textbox">
+      <h1>좋은 선택이 <br>좋은 하루를 만듭니다.</h1>
+      <p>A Good Choice Creates a Better Day</p>
+    </div>
+
+   <div class="slide-box">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- ✅ Point 1 -->
+<div class="swiper-slide">
+  <div class="slide-content">
+
+    <!-- 🔵 클릭 시 나타나는 텍스트 박스 -->
+    <div class="story-box">
+      <h2>라이프 스타일의 품격을 높이는, 네이비베이.</h2>
+      <p>
+        NAVYSEAL+BAY = NAVYBAY 시장을 읽고,흐름을 통제하며,
+	브랜드를 성공으로 이끄는 힘.  <br> <br>
+	정확한 전략과 유연한 실행으로, NAVYBAY는 시장의 흐름을 앞서 이끕니다.
+			
+        
+        
+      </p>
+    </div>
+
+    <!-- 🔵 기존 point 텍스트 (그대로 유지하지만 이벤트 없음) -->
+    <div class="point">STORY 1</div>
+
+    <!-- 🔵 이미지 -->
+    <img draggable="false" class="widebg1" src="/images/sec2_card01.png" alt="프리미엄 종합 유통 기업">
+
+    <!-- 🔵 기존 텍스트 -->
+    <div class="text-wrap">
+      <h3>Command the Market</h3>
+      <p>
+        다양한 카테고리의 제품을 선보이며,<br>
+        브랜드와 소비자를 연결하는 <br>플랫폼 역할을 합니다.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+         <!-- ✅ Point 2 -->
+<div class="swiper-slide">
+  <div class="slide-content">
+
+    <div class="story-box">
+      <h2>NAVYFIT - 당신의 퍼포먼스에 완벽히 '핏'하다.</h2>
+      <p>
+        우리는 '핏'을 단순한 사이즈가 아닌 '경험'으로 정의합니다. <br> 
+        기술, 디자인, 그리고 세심한 디테일이 만나<br><br>
+        당신의 움직임 하나하나를 완벽하게 완성합니다.
+      </p>
+    </div>
+
+    <div class="point">STORY 2</div>
+
+    <img draggable="false" class="widebg2" src="/images/sec2_card02.png" alt="Fit Your Life">
+
+    <div class="text-wrap">
+      <h3>Fit Your Life</h3>
+      <p>당신의 라이프를 완성하다.<br>함께하는 순간을 더 가치 있게.</p>
+    </div>
+
+  </div>
+</div>
+<!-- ✅ Point 3 -->
+<div class="swiper-slide">
+  <div class="slide-content">
+
+    <div class="story-box">
+      <h2>새로운 전환의 시작, STASHIFT</h2>
+      <p>
+        세상은 끊임없이 변하고,<br> 우리는 그 변화를 이끕니다.<br>  
+        기술과 디자인, 그리고 새로운 시각이 만나<br><br>
+        더 스마트한 내일을 만들어 갑니다.
+      </p>
+    </div>
+
+    <div class="point">STORY 3</div>
+
+    <img draggable="false" class="widebg3"  src="/images/sec2_card03.png" alt="Start the Shift">
+
+    <div class="text-wrap">
+      <h3>Start the Shift</h3>
+      <p>변화를 시작하다.<br>최고의 퍼포먼스를 위한 새로운 전환,<br><strong>STASHIFT</strong>.</p>
+    </div>
+
+  </div>
+</div>
+
+
+          <!-- ✅ Point 4 -->
+<div class="swiper-slide">
+  <div class="slide-content">
+
+    <div class="story-box">
+      <h2>모든 따뜻한 순간을 위해</h2>
+      <p>
+        하루의 끝, 쉼의 온도까지 생각합니다.<br>
+        SEALDAM은 당신의 일상 속 온기를 <br><br>
+        정성스럽게 담아내는 브랜드 입니다.
+     
+      </p>
+    </div>
+
+    <div class="point">STORY 4</div>
+
+    <img draggable="false" class="widebg4" src="/images/sec2_card04.png" alt="Life Elevated">
+
+    <div class="text-wrap">
+      <h3>SEALDAM</h3>
+      <p>좋은 경험은 과하지 않아도 됩니다.<br>단지, 정확하면 됩니다.</p>
+    </div>
+
+  </div>
+</div>
+
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+ 
+   
+     <!-- 🔹 카드 리스트 영역 -->
+ 
+
+ <div class="card-section">
+<div class="sec2-1textbox">
+    <h2>NAVYFIT</h2>
+    <p class="sub1text">Redefining Your Everyday Performance</p>
+    <p class="sub2text">SERVICE POINT</p >
+</div>
+
+  <div class="swiper cardSwiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <a target="_blank" href="https://navybay.co.kr/product/%EB%84%A4%EC%9D%B4%EB%B9%84%ED%95%8F-%EA%B3%A8%ED%94%84%EC%9E%A5%EA%B0%91-%EB%A0%88%EC%9D%B4%EC%8B%B1%EB%84%88%ED%81%B4-%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84-%EA%B7%B9%EC%84%B8%EC%82%AC-%EB%82%A8%EC%84%B1%EC%9A%A9-%EC%99%BC%EC%86%90/127/category/126/display/1/" class="card">
+          <div class="card-bg1"></div>
+          <div class="card-text">
+            <h3>Point 1</h3>
+            <h4>레이싱 너클 골프장갑</h4>
+            <p>EFA-112</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="swiper-slide">
+        <a target="_blank" href="https://navybay.co.kr/product/%EB%84%A4%EC%9D%B4%EB%B9%84%ED%95%8F-%EA%B3%A8%ED%94%84-%EC%9A%B0%EC%82%B0-%EB%A0%88%EC%9D%B4%EC%8B%B1%EC%8D%A8%ED%81%B4-uv%EC%B0%A8%EB%8B%A8-%EC%96%91%EC%82%B0%EA%B2%B8%EC%9A%A9-%EC%9E%90%EB%8F%99/108/category/126/display/1/" class="card">
+          <div class="card-bg2"></div>
+          <div class="card-text">
+            <h3>Point 2</h3>
+            <h4>레이싱 써클 골프우산</h4>
+            <p>NFAC-0001</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="swiper-slide">
+        <a  target="_blank" href="https://navybay.co.kr/product/%EB%84%A4%EC%9D%B4%EB%B9%84%ED%95%8F-%ED%95%AD%EA%B3%B5%EC%BB%A4%EB%B2%84-%EB%AA%A8%EB%85%B8%EA%B7%B8%EB%9E%A8-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%92%80%EC%98%A4%ED%94%88-%ED%95%AD%EA%B3%B5%EB%B0%B1/107/category/126/display/1/" class="card">
+          <div class="card-bg3"></div>
+          <div class="card-text">
+            <h3>Point 3</h3>
+            <h4>모노그램 항공커버</h4>
+            <p>NFTC-0001</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="card">
+          <div class="card-bg4"></div>
+          <div class="card-text">
+            <h3>Point 4</h3>
+            <h4>모노그램 로고 캡</h4>
+            <p>CP-21</p>
+          </div>
+        </div>
+      </div>
+
+
+
+       <div class="swiper-slide">
+        <div class="card">
+          <div class="card-bg5"></div>
+          <div class="card-text">
+            <h3>Point 5</h3>
+            <h4>코스워커 롤러 트롤리백</h4>
+            <p>TR-01</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 페이지네이션 -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+  </section>
+
+
+<!-- =========================
+     SEC2-2 NEW CARD SLIDE
+========================= -->
+<section class="sec2-2">
+
+  <div class="sec2-2-title">
+    <h2>STASHIFT</h2>
+    <p>Premium Lifestyle Experience</p>
+  </div>
+
+  <div class="card-section2">
+    <h2>SERVICE POINT</h2>
+
+    <div class="swiper cardSwiper2">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="card">
+            <div class="card-bg1"></div>
+            <div class="card-text">
+              <h3>Point 1</h3>
+              <h4>DOWNSHIFT - LINE UP</h4>
+              <p>BC-5446</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card">
+            <div class="card-bg2"></div>
+            <div class="card-text">
+              <h3>Point 2</h3>
+              <h4>UPSHIFT - LINE UP</h4>
+              <p>PF-442</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card">
+            <div class="card-bg3"></div>
+            <div class="card-text">
+              <h3>Point 3</h3>
+              <h4>HIGHSHIFT - LINE UP</h4>
+              <p>BC-2112</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="swiper-slide">
+          <div class="card">
+            <div class="card-bg4"></div>
+            <div class="card-text">
+              <h3>Point 4</h3>
+              <h4>STASHIFT FLEXWAVE</h4>
+              <p>AP-214</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="swiper-slide">
+          <div class="card">
+            <div class="card-bg5"></div>
+            <div class="card-text">
+              <h3>Point 5</h3>
+              <h4>DOWNSHIFT - LINE UP</h4>
+              <p>PF-441</p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+ <section class="sec3">
+   <div class="textbox">"WE MAKE"</div> 
+   <div class="sec3-bg"> 
+    <div class="textbox"> 
+      <p>ONLY NAVYBAY </p>
+    </div> </div> 
+    <div class="sec3-inner">
+       <!-- 🔹 브랜드 스토리 텍스트 (추가) -->  
+        <div class="sec3-images"> 
+  <img draggable="false" src="images/sec3_01bbg1.png" alt="NAVYBAY 한정 제품" class="img1"> 
+  <img  draggable="false" src="images/sec3_01bbg2.png" alt="NAVYBAY 제품 클로즈업" class="img2"> 
+  <img draggable="false" src="images/sec3_01bbg3.png" alt="NAVYBAY 제품 클로즈업" class="img3"> 
+
+  <a class="baro" draggable="false" target="_blank" href="https://navybay.co.kr"></a> 
+</div> </div> </section>
+
+
+
+<section class="mosec4">
+  <div class="centerbox">
+    <video autoplay muted loop playsinline src="video/sec4main.mp4"></video>
+    <div class="textbox">
+      <h1>Discover Your Wave</h1>
+      <p>NAVYBAY EXPERIENCE</p> 
+    </div>
+  </div>
+</section>
+
+
+
+<section class="sec4">
+
+  <!-- 🔵 PC용 이미지 -->
+  <div class="bgimg pc-bg">
+    <img draggable="false" src="images/sec4bg.png" alt="sec4 대표이미지 PC">
+  </div>
+
+  <!-- 🔵 모바일용 이미지 -->
+  <div class="bgimg mobile-bg">
+    <img draggable="false" src="images/sec4bgmo.png" alt="sec4 대표이미지 Mobile">
+  </div>
+
+  <!-- 비디오 마스크 그대로 -->
+  <div class="video-mask">
+    <video autoplay muted loop playsinline src="video/sec4main.mp4"></video>
+  </div>
+
+  <div class="sec4_text">
+    <h1>Discover Your Wave</h1>
+    <p>NAVYBAY EXPERIENCE</p>
+  </div>
+
+</section>
+
+
+
+<div id="sec5-load"></div>
+
+
+
+
+<section class="sec6">
+  <div class="visual-bg">
+    <div class="blur-circle"></div>
+    <div class="blur-circle small"></div>
+  </div>
+
+  <div class="inner">
+    <h2 class="title">&deg; Coming soon</h2>
+    <ul class="brand-grid">
+      <li><img draggable="false" src="images/sec6_1.png" alt="Brand 1"></li>
+      <li><img draggable="false" src="images/sec6_2.png" alt="Brand 2"></li>
+      <li><img draggable="false" src="images/sec6_3.png" alt="Brand 3"></li>
+      <li><img draggable="false"  src="images/sec6_4.png" alt="Brand 4"></li>
+      <li><img draggable="false" src="images/sec6_5.png" alt=""></li>
+       <li><video draggable="false"  loop autoplay muted  src="video/sec6_5.mp4"></video></li>
+      <li><img draggable="false" src="images/sec6_6.png" alt="Brand 6"></li>
+      <li><img draggable="false" src="images/sec6_7.png" alt=""></li>
+      <li><img draggable="false" src="images/sec6_8.jpg" alt="Brand 8"></li>
+     
+      <li><video draggable="false" autoplay muted loop src="video/sec6_10.mp4"></video></li>
+      
+     
+    </ul>
+  </div>
+</section>
+
+<section class="sec7">
+  <div class="visual-bg">
+    <div class="blur-circle"></div>
+    <div class="blur-circle small"></div>
+  </div>
+
+  <div class="inner">
+    <h2 class="title">Let’s work together.</h2>
+    <p class="desc">
+      정제된 감성과 기술로, 브랜드의 파도를 만듭니다.<br>
+      프로젝트 제안 및 협업 문의는 아래 연락처로 부탁드립니다.
+    </p>
+
+    <div class="contact-info">
+      <a href="mailto:navybay@brand.com" class="mail">cs@navybay.com</a>
+      <p>Tel : 010 - 4487 - 1400</p>
+      <div class="sns">
+        <a target="_blank" href="https://www.instagram.com/navy_bay/"><img draggable="false" src="images/insta.svg" alt="Instagram"></a>
+
+        <a target="_blank" href="https://www.youtube.com/@%EB%84%A4%EC%9D%B4%EB%B9%84%EB%B2%A0%EC%9D%B4"><img draggable="false" src="images/youtube.svg" alt="Youtybe"></a>
+
+
+        <a target="_blank" href="http://pf.kakao.com/_XVQxmxj"><img draggable="false" src="images/kakao.svg" alt="kakao"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-info">
+    <p>
+      네이비베이 주식회사 ㅣ 대표 : 최재호 ㅣ 사업자등록번호 : 364-86-03318<br>
+      통신판매업신고번호 : 2024-경기광주-0219 ㅣ
+      [<a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=3648603318" target="_blank">사업자정보확인</a>]<br>
+      개인정보관리책임자 : 최재윤 (finance@navybay.com) <br>
+      주소 : (12772) 경기도 광주시 대명대길11번길 4 씨동 지층, 1층, 2층 (능평동)
+    </p>
+    <p class="copyright">© 2025 NAVYBAY. All rights reserved.</p>
+  </div>
+
+ 
+
+  <!-- Scroll To Top -->
+  <button class="scroll-top" aria-label="Scroll to top">
+    <p>Top</p>
+  </button>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- ===========================
+     Custom Script
+=========================== -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- ✅ sec15/sec5 초기화 함수 파일을 먼저 로드 -->
+<script src="include/sec15.js"></script>
+<script src="include/sec5.js"></script>
+
+<script>
+  $(function () {
+    $("#sec15-load").load("include/sec15.html", function () {
+      if (window.initSec15) window.initSec15();
+      if (window.ScrollTrigger) ScrollTrigger.refresh(true);
+    });
+
+    $("#sec5-load").load("include/sec5.html", function () {
+      console.log("✅ sec5.html 로드 완료");
+      if (window.initSec5) window.initSec5();
+      if (window.ScrollTrigger) ScrollTrigger.refresh(true);
+    });
+  });
+</script>
+
+<script src="js/custom.js"></script>
+
+
+
+<!-- ===========================
+     Section Animations
+=========================== -->
+<script>
+
+
+
+
+/* ===========================
+   SEC3 스크롤 PC / 모바일 분리
+=========================== */
+
+function createSec3Timeline(endValue) {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec3",
+      start: "top top",
+      end: endValue,
+      scrub: true,
+      pin: true,
+      anticipatePin: 1,
+    }
+  });
+
+  tl.to(".sec3-bg", { x: "0%", ease: "power2.out", duration: 6 })
+    .fromTo(".sec3-bg .textbox",
+      { opacity: 0, x: -50 },
+      { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" },
+      "-=3"
+    )
+    .to(".sec3-bg .textbox", { opacity: 0, duration: 1.2, ease: "power2.in" }, "+=1")
+    .to(".img1", { opacity: 1, duration: 1.5 })
+    .to(".img1", { opacity: 0, duration: 1.5 }, "+=0.5")
+    .to(".img2", { opacity: 1, rotationZ: -30, duration: 1.5 }, "<")
+    .to(".img2", { opacity: 0, duration: 1.5 }, "+=0.8")
+    .to(".img3", { opacity: 1, duration: 1.5 }, "<")
+    .fromTo(".baro", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1.2 });
+
+  return tl;
+}
+
+ScrollTrigger.matchMedia({
+
+"(max-width: 768px)": function () {
+  createSec3Timeline(() => "+=" + Math.round(window.innerHeight * 3.5)); // 모바일 느리게
+},
+
+  "(min-width: 769px)": function () {
+    createSec3Timeline("+=4000");   // PC 기존 길이
+  }
+
+});
+
+
+
+
+  
+/* ===========================
+   SEC4 / MOSEC4 (분리)
+=========================== */
+ScrollTrigger.matchMedia({
+
+  // ✅ 모바일: sec4 핀/마스크 타임라인 금지 + mosec4만 사용
+  "(max-width: 760px)": function () {
+
+    // 혹시 기존에 생성된 sec4 트리거가 있으면 제거(리사이즈/리로드 안전)
+    const old = ScrollTrigger.getById("sec4-pin");
+    if (old) old.kill(true);
+
+    // sec4 관련 GSAP 잔상 제거(레이아웃 튐 방지)
+    gsap.killTweensOf([".video-mask", ".sec4_text"]);
+    gsap.set([".video-mask", ".sec4_text"], { clearProps: "all" });
+
+    // mosec4 텍스트 간단 등장(원치 않으면 이 블록 삭제 가능)
+    gsap.fromTo(".mosec4 .textbox",
+      { autoAlpha: 0, y: 18 },
+      {
+        autoAlpha: 1, y: 0, duration: 0.7, ease: "power2.out",
+        scrollTrigger: {
+          id: "mosec4-in",
+          trigger: ".mosec4",
+          start: "top 70%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+
+    // (옵션) mosec4 진입 시 메뉴 색상 변경 필요하면 유지
+    ScrollTrigger.create({
+      id: "mosec4-menu",
+      trigger: ".mosec4",
+      start: "top top",
+      end: "bottom top",
+      onEnter: () => gsap.to(".menu ul li a", { color: "#fff", duration: 0.3 }),
+      onLeaveBack: () => gsap.to(".menu ul li a", { color: "#223A5E", duration: 0.3 })
+    });
+  },
+
+  // ✅ PC: 기존 sec4 마스크 pin 유지
+  "(min-width: 761px)": function () {
+
+    const sec4TL = gsap.timeline({
+      scrollTrigger: {
+        id: "sec4-pin",
+        trigger: ".sec4",
+        start: "top top",
+        end: "+=250%",
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+        markers: false,
+        onEnter: () => gsap.to(".menu ul li a", { color: "#fff", duration: 0.5 }),
+        onLeaveBack: () => gsap.to(".menu ul li a", { color: "#223A5E", duration: 0.5 })
+      }
+    });
+
+    gsap.set(".video-mask", {
+      opacity: 1,
+      top: "100%",
+      width: "10vw",
+      height: "10vw",
+      borderRadius: "50%"
+    });
+
+    sec4TL
+      .to(".video-mask", { top: "50%", ease: "power2.out", duration: 1.5 })
+      .fromTo(".video-mask",
+        { boxShadow: "0 0 0 5px rgba(255,255,255,0.4)" },
+        { boxShadow: "0 0 0 0 rgba(255,255,255,0)", duration: 1, ease: "power1.inOut" },
+        "<0.3"
+      )
+      .to(".video-mask", { width: "100vw", height: "100vh", borderRadius: "0%", ease: "power2.inOut", duration: 2.5 })
+      .fromTo(".sec4_text",
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1.8, color: "#fff", ease: "power2.out" },
+        "<0.6"
+      );
+  }
+
+});
+
+
+
+
+/* ===========================
+   SEC6 Partner Logos
+=========================== */
+gsap.from(".brand-grid li", {
+  scrollTrigger: { trigger: ".sec6", start: "top 80%" },
+  y: 40,
+  opacity: 0,
+  duration: 1.2,
+  stagger: 0.1,
+  ease: "power2.out"
+});
+
+/* ===========================
+   SEC7 Contact Fade-in
+=========================== */
+gsap.from(".sec7 .inner > *", {
+  scrollTrigger: { trigger: ".sec7", start: "top 85%" },
+  y: 30,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.2,
+  ease: "power2.out"
+});
+
+/* ===========================
+   Scroll To Top
+=========================== */
+const scrollTopBtn = document.querySelector(".scroll-top");
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener("click", () => {
+    gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: "power2.inOut" });
+  });
+}
+</script>
+
+</body>
+
+
+
+
+
+
+
+
+ 
+
+</html>

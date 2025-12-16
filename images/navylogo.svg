@@ -1,0 +1,234 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/Unfold/UnfoldCss/about/brand-03.css)-->
+
+
+<!--모든 텍스트는 아래에서 검정색 부분을 수정해 주시면 됩니다.  -->
+
+
+<div class="brand-type-03">
+    
+    <div id="brand-slide">
+        
+          <div class="text-box">
+                <div class="inner">
+                             <h3>
+                                네이비베이 홈페이지를 찾아주셔서 감사합니다.
+    
+                            </h3>
+    
+                            <p>
+    
+                               네이비베이는 고객에 대한 깊은 이해와 사랑을 바탕으로 <br>최고의 고객가치를 실현하기 위해 끊임없이 노력하고 있습니다. <br>
+                               고객의 니즈와 요구사항을 반영한 혁신적인 제품과 서비스를 제공하고자 노력하며,<br> 
+                               유명 골프 브랜드 "로사센", "프링글스"를 비롯한 국내외 유수의 브랜드와의<br>전략적 제휴를 통해 고객 여러분께 차별화된 골프 경험을 제공합니다.<br>
+    
+                            </p>
+                   </div><!--inner-->
+           </div><!--text-box-->
+        
+        <div class="swiper-button-prev swiper-button-black"></div>
+        <div class="swiper-button-next swiper-button-black"></div>
+        <div class="swiper-pagination swiper-pagination-black"></div>
+        <div class="swiper-wrapper cont-box">
+     
+        <div class="swiper-slide brand-slide-01">
+            <div class="b-banner">
+            </div>
+          
+        </div>
+
+        <div class="swiper-slide brand-slide-02">
+            <div class="b-banner">
+            </div>
+        
+        </div>
+
+            
+            
+              <div class="swiper-slide brand-slide-03">
+            <div class="b-banner">
+            </div>
+        </div>
+            
+     </div><!--cont-box-->
+    
+    </div>
+    </div><!--brand-type-03-->
+
+
+
+
+
+<div class="l-title-top">
+    
+   <div class="inner"> 
+     <h2>네이비베이 소개</h2>
+     <h3>NAVYBAY INFO</h3>
+    </div><!--inner-->
+    
+</div><!--l-title-top-->
+
+<div class="wrap-60">
+<div class="info-box-b">
+
+    <p>
+        네이비베이 브랜드는 국내외 유명 브랜드와의 전략적 라이센스 계약을 통해 고품질의 골프용품, 스포츠용품, 생활용품을 직접 설계하고 제조하고 있습니다. <br> 
+        특히, 세계적으로 명성이 높은 "로사센"과 "힐크릭" 브랜드의 일부 제품을 직접 디자인 및 설계하여 고객 여러분께 선보이고 있습니다.<br> 
+ 		끊임없는 노력으로 혁신과 품질 향상, 합리적인 가격을 실현하고자 하는 네이비베이 브랜드는, <br> 
+        국내외 유수 브랜드들과의 긴밀한 협력 관계를 바탕으로 고객 여러분의 라이프스타일과 취향에 최적화된 아이템을 선보이고 있습니다.<br> 
+    </p>
+    
+</div><!--info-box-b-->
+    <div class="res-img">
+         <p><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-banner-01.jpg?ver=1" alt="banner"></p><!-- 회사소개 아래 이미지1 업데이트/ ver= 숫자변경 -->
+    </div><!--res-img-->
+    
+    <div class="res-img">
+         <p><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-banner-02.jpg?ver=2" alt="banner"></p><!-- 회사소개 아래 이미지2 업데이트/ ver= 숫자변경 -->
+    </div><!--res-img-->
+    
+    
+
+    <div class="n-box-banner">
+        
+        <div class="fl-inner">
+          <div class="wrap-01">  
+              <p class="list-01"><a></a></p>
+              <p class="list-02"><a></a></p>
+              <p class="list-03"><a></a></p>
+           </div>
+           <div class="wrap-02">  
+            <p class="list-04"><a></a></p>
+            <p class="list-05"><a></a></p>    
+           </div>
+              
+              
+         </div><!--fl-inner-->
+        
+        
+        
+    </div><!--n-box-banner-->
+    </div><!--wrap-80-->
+    <div class="l-title-top">
+    
+   <div class="inner"> 
+     <h2>취급 브랜드 소개</h2>
+     <h3>HANDLING BRAND INFO</h3>
+    </div><!--inner-->
+   
+    
+	</div><!--l-title-top-->
+    <div class="wrap-60">
+    <div class="info-box-p">
+    
+	</div><!--info-box-b-->
+    
+    
+   
+    <div class="on-store">
+        
+          
+          <ul>
+        
+               <li><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-store-banner-01.jpg?ver=3" alt="banner"><p><a href="#">ONLINE STORE</a></p></li><!--온라인 이미지 업데이트/ ver= 숫자변경 / 링크입력-->
+               <li><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-store-banner-02.jpg?ver=3" alt="banner"><p><a href="#">ONLINE STORE</a></p></li><!--온라인 이미지 업데이트/ ver= 숫자변경 / 링크입력-->
+               <li><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-store-banner-03.jpg?ver=4" alt="banner"><p><a href="#">ONLINE STORE</a></p></li><!--온라인 이미지 업데이트/ ver= 숫자변경 / 링크입력-->
+        
+           </ul>
+    
+    
+    </div><!--on-store-->
+    
+    
+    
+    
+</div><!--wrap-80-->
+
+
+
+
+
+    
+    
+ <!-- 흐르는 이미지 영역 -->            
+  <div class="main-marquee">
+    <div class="marquee-content marquee-scroll">
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+    </div>
+    <div class="marquee-content marquee-scroll">
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+        <div class="text-block"><img src="//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-marquee-logo.png?ver=19" alt="banner"></div><!-- 흐르는 로고 이미지 업데이트/ ver= 숫자변경 -->
+    </div>
+</div>
+    
+    
+
+
+
+
+
+<style>
+    #brand-slide .swiper-slide.brand-slide-01 .b-banner {
+  background: url("//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/brand-t3-banner-01.jpg?ver=3") center no-repeat; /* 상단 슬라이드 이미지 업데이트/ ver= 숫자변경*/
+  background-size: cover;
+}
+
+#brand-slide .swiper-slide.brand-slide-02 .b-banner {
+  background: url("//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/brand-t3-banner-02.jpg?ver=2") center no-repeat; /*상단 슬라이드 이미지 업데이트/ ver= 숫자변경*/
+  background-size: cover;
+}
+
+
+#brand-slide .swiper-slide.brand-slide-03 .b-banner {
+  background: url("//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/brand-t3-banner-03.jpg?ver=3") center no-repeat; /*상단 슬라이드 이미지 업데이트/ ver= 숫자변경*/
+  background-size: cover;
+}
+
+    
+    .n-box-banner .list-01 a {  background: url("//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-box-banner-01.jpg?ver=3") center no-repeat; /*박스 이미지 업데이트/ ver= 숫자변경*/
+    background-size: cover;}
+     .n-box-banner .list-02 a {  background: url("//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-box-banner-02.jpg?ver=2") center no-repeat; /*박스 이미지 업데이트/ ver= 숫자변경*/
+    background-size: cover;}
+     .n-box-banner .list-03 a {  background: url("//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-box-banner-03.jpg?ver=2") center no-repeat; /*박스 이미지 업데이트/ ver= 숫자변경*/
+    background-size: cover;}
+     .n-box-banner .list-04 a {  background: url("//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-box-banner-04.jpg?ver=4") center no-repeat; /*박스 이미지 업데이트/ ver= 숫자변경*/
+    background-size: cover;}
+     .n-box-banner .list-05 a {  background: url("//ecimg.cafe24img.com/pg968b37491245098/navybay33/web/upload/unfold_images_lovie/n-brand-box-banner-05.jpg?ver=6") center no-repeat; /*박스 이미지 업데이트/ ver= 숫자변경*/
+      background-size: cover;}
+
+    </style>
+
+
+
+
+    <script>
+        
+        const brand03Sw = new Swiper('#brand-slide', {
+          speed: 800,
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction:false
+          },
+          loop:true,
+          effect: 'fade',
+          fadeEffect: {
+            crossFade: true
+          },
+          navigation: {
+            nextEl: '#brand-slide .swiper-button-next',
+            prevEl: '#brand-slide .swiper-button-prev',
+          },
+          pagination: {
+            el: '#brand-slide .swiper-pagination',
+            type: 'fraction',
+          },
+        });
+
+    </script>랑 */

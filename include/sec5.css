@@ -1,0 +1,281 @@
+/* =========================
+   SEC5 센터 카드 4장 (700x500, 겹치기)
+   - HTML 변경 없음
+   - 영향 범위: .sec5 내부만
+========================= */
+
+.sec5 { position: relative;  height: 101vh; background: #000;
+margin: 0; padding: 0;}                /* 부모 기준점 */
+.sec5 .sec5-inner { position: relative; }    /* 안전하게 고정 */
+.sec5 .vi { color: #fff; font-size: 10vw;  display: flex; justify-content: center; 
+     padding-top: 80px; position: absolute; margin: 0 auto; width: 100%;
+ 
+    
+}
+
+.sec5::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;      /* 🔥 핵심: 아래쪽으로 1px 확장 */
+  height: 2px;
+  background: #F1EEE9;   /* 🔥 sec6 배경색으로 맞추기 */
+  z-index: 1;
+}
+.sec5 .stack-wrap { position: static; display: flex; flex-direction: column; align-items: center; justify-content: center;   height: 100vh;}      /* 기존 스택 레이아웃 영향 최소화 */
+
+.sec5 .stack-card{
+    
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80vw;
+  height: 600px;
+  transform: translate(-50% , -50%);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  opacity: 0;
+  z-index: 1;
+  background: #111;         /* 로딩 깜빡임 방지 */
+  pointer-events: none;     /* 필요 시 제거 */
+}
+.mobilesec5text2 { display: none;}
+
+
+/* 배경 이미지는 카드별로 */
+.sec5 .stack-card.card1 { background: url('../images/sec5_01.jpg') center/cover no-repeat; }
+.sec5 .stack-card.card2 { background: url('../images/sec5_02.png') center/cover no-repeat; }
+.sec5 .stack-card.card3 { background: url('../images/sec5_03.png') center/cover no-repeat; }
+.sec5 .stack-card.card4 { background: url('../images/sec5_04.png') bottom/cover no-repeat; }
+
+/* 원래 img는 숨김(배경으로 대체) */
+.sec5 .stack-card > img { display: none !important; }
+
+/* 텍스트(프로젝트 톤 유지) */
+.sec5 .stack-card .card-text{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2vw;
+  color: #fff;
+  text-shadow: 0 3px 15px rgba(0,0,0,.7);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.55) 100%);
+}
+.sec5 .stack-card .card-text h2{
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 1vw;
+}
+.sec5 .stack-card .card-text p{
+  font-size: clamp(.95rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
+  color: #ffffff;
+}
+.sec5 .card-text .sec5text2 { font-weight: 600; opacity: 1; }
+.sec5 .card-text .sec5text3 { font-weight: 700; opacity: 1; }
+
+/* 반응형 */
+@media (max-width: 900px){
+  .sec5 .stack-card{ width: 88vw; height: min(70vw, 70vh); }
+}
+@media (max-width: 760px) {
+    .sec5 .stack-card {height: 500px !important;}
+    .mobilesec5text2 { display: block !important; } 
+    .sec5text2 {display: none;}
+    
+    .sec5 .stack-card .card-text { display: flex; flex-direction: column ; padding-bottom: 60px; padding-left: 10px;}
+    .sec5 .stack-card .card-text h2 { font-size: 18px;}
+   .sec5 .stack-card .card-text {background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 100%);}
+
+}
+
+/* =========================
+   SEC5 문단 리듬/전환 정리
+   - HTML 변경 없음
+   - 4개 카드 공통
+========================= */
+.sec5 .card-text{
+  --gap-s: 0.8em;       /* 문장 간 기본 간격 */
+  --gap-m: 1.2em;       /* 핵심/보조 문단 사이 간격 */
+  --lh: 1.65;           /* 줄간격 */
+  --ls: 0.005em;        /* 자간(미세) */
+}
+
+/* 기본 타이포 리듬 */
+.sec5 .card-text h2{
+  margin: 0 0 0.75em 0;            /* 타이틀 하단만 여백 */
+  line-height: 1.25;
+  letter-spacing: var(--ls);
+}
+
+/* 본문 공통 */
+.sec5 .card-text p{
+  margin: 0;                        /* 모든 p 기본 margin 제거 */
+  line-height: var(--lh);
+  letter-spacing: var(--ls);
+  text-wrap: balance;               /* 행 균형(크롬/엣지·신규) */
+  word-break: keep-all;             /* 불필요한 단어 쪼개짐 방지 */
+  hyphens: auto;                    /* 긴 단어 자동 하이픈(가능 시) */
+  transition: opacity .28s ease, transform .28s ease; /* 전환 부드럽게 */
+  will-change: opacity, transform;
+}
+
+/* 문단 간격 규칙: p 다음 p는 기본 간격 */
+.sec5 .card-text p + p{ margin-top: var(--gap-s); }
+
+/* 서브헤드(굵은 보조 라인) → 다음 본문과 간격 넉넉히 */
+.sec5 .card-text .sec5text3{ 
+  margin-top: var(--gap-s);
+  font-weight: 700;
+  opacity: .9;
+}
+.sec5 .card-text .sec5text3 + p{ margin-top: var(--gap-m); }
+
+/* 보조 키워드 라인(영문 라인) → 타이틀 직후 간격 축소 */
+.sec5 .card-text .sec5text2{
+  margin-top: .4em;
+  font-weight: 600;
+  opacity: .95;
+}
+
+/* span 강조가 줄바꿈으로 갈리는 것 최소화 */
+.sec5 .card-text span{
+  white-space: nowrap; /* 강조어구 끊김 방지(필요 시만 유지) */
+}
+
+/* 모바일에서 간격 살짝 압축 */
+@media (max-width: 768px){
+  .sec5 .card-text{ --gap-s: 0.7em; --gap-m: 1.0em; --lh: 1.6; }
+}
+
+/* 글자 렌더링 안정화(플랫폼별) */
+.sec5 .card-text{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.sec5,
+.sec5-inner,
+.stack-card,
+.stack-card img {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.sec5::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #000;
+}
+.sec5 {
+  position: relative;
+  background: #000;
+}
+
+.sec5::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20px;
+  background: #000; /* sec5 배경색과 동일 */
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.stack-card {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.sec5 .stack-card {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  
+
+
+
+.mo-sec5 { 
+  color:#fff;   
+  display: none;
+  height: auto; 
+  background: #000;
+  padding: 80px 0;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+}
+   .mo-sec5 .centerbox { padding: 70px 0;}
+   .mo-sec5 .centerbox ul { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; } 
+
+   
+    .mo-sec5 .centerbox ul li { border-radius: 20px; height: auto;
+     opacity: 0;
+  transform: translateY(30px);
+  transition: 
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;}
+.mo-sec5 ul li.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+   
+    .mo-sec5 .title { text-align: center; margin-bottom: 50px; font-size: 35px; font-weight: 800;}
+
+
+
+
+    .mo-sec5 .textbox{  display: flex; flex-direction: column; justify-content: center; align-items: start; padding: 20px 20px;   background: rgba(0,0,0,.36); height: 100%; word-break: keep-all; color: #f0f0f0; }
+
+     .mo-sec5 .textbox h2 { font-size: 18px; font-weight: 700; padding-bottom: 5px;}
+     .mo-sec5 .textbox p { font-size: 15px; font-weight: 400; line-height: 1.7; word-break: keep-all;  margin-bottom: 10px;}
+     .mo-sec5 .textbox p.subtitle { padding-bottom: 5px; font-size: 17px;}
+
+    .card3textbox {background: rgba(0,0,0,.45) !important;}
+
+     .mo-sec5 .centerbox ul li.card_1{background: url(../images/sec5_01.jpg) center top no-repeat; width: 90%; background-position: center; background-size: cover; word-break: keep-all;} 
+    .mo-sec5 .centerbox ul li.card_2{background: url(../images/sec5_02.png) center top no-repeat; width: 90%; background-position: center; background-size: cover;word-break: keep-all;}
+    .mo-sec5 .centerbox ul li.card_3{background: url(../images/sec5_03.png) center top no-repeat; width: 90%; background-position: center; background-size: cover;word-break: keep-all;}
+    .mo-sec5 .centerbox ul li.card_4{background:  url(../images/sec5_04.png) center bottom no-repeat; width: 90%; background-size: cover; 
+    word-break: keep-all;}
+
+
+
+
+
+  @media (max-width:376px) {
+    .sec5 .vi { padding-top: 20px !important; }
+  }
+
+   @media (max-width:360px) {
+    .sec5 .vi  { padding-top: 30px !important;}
+   }
+
+
+
+   @media (max-width : 786px) {
+    
+    .sec5 {display: none;}
+    .mo-sec5 {display: flex !important;}
+     
+   }
+
+
+    

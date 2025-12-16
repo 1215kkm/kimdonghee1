@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+* {margin: 0; padding: 0; }
+
+a {text-decoration: none; color: #343434;}
+li {list-style: none;}
+img, video {vertical-align: top;}
+table {border-collapse: collapse;}
+input {outline: 0;}
+fieldset {border: 0}
+legend {font-size: 0; color: transparent; text-indent: -9999px; position: absolute; left: -9999px;;}
+textarea {border-radius: 0; resize: none; outline: 0;} 
+textarea:focus { border: 1px solid #860e0e;}
