@@ -7,6 +7,20 @@ function isMobile() {
   return window.innerWidth <= 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent);
 }
 
+// ✅ throttle 함수 (iOS 성능 최적화)
+function throttle(fn, wait) {
+  let lastTime = 0;
+  let rafId = null;
+  return function(...args) {
+    const now = performance.now();
+    if (now - lastTime >= wait) {
+      lastTime = now;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => fn.apply(this, args));
+    }
+  };
+}
+
 
 
 
@@ -107,27 +121,21 @@ if (isMobile()) {
   });
 }
 
-/* intro → sec1 → sec2 배경 전환 */
-window.addEventListener('scroll', () => {
-
+/* intro → sec1 → sec2 배경 전환 (throttle 적용) */
+window.addEventListener('scroll', throttle(() => {
   const sec2 = document.querySelector('.sec2');
   if (!sec2) return;
 
   const rect = sec2.getBoundingClientRect();
   const winH = window.innerHeight;
-
-  // sec2의 상단이 화면 80% 지점에 들어오면 시작
   const start = winH * 0.8;
-
-  // sec2가 화면 중앙에 위치하면 최대로 도달
   const end = winH * 0.2;
 
   let progress = (start - rect.top) / (start - end);
   progress = Math.min(Math.max(progress, 0), 1);
 
   sec2.style.setProperty("--bg-opacity", progress.toFixed(2));
-
-});
+}, 16), { passive: true });
 
 /* ===========================
    4️⃣ SVG 싸인 애니메이션
@@ -150,13 +158,16 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ===========================
-   5️⃣ 메뉴 색상 전환
+   5️⃣ 메뉴 색상 전환 (throttle 적용)
 =========================== */
-window.addEventListener('scroll', () => {
+// 캐시된 DOM 요소
+const menuLinksCache = document.querySelectorAll('.menu .pc-menu li a');
+let lastActiveColor = "#fff";
+
+window.addEventListener('scroll', throttle(() => {
   const sections = document.querySelectorAll('section');
-  const menuLinks = document.querySelectorAll('.menu .pc-menu li a');
-  
-  if (sections.length === 0 || menuLinks.length === 0) return;
+
+  if (sections.length === 0 || menuLinksCache.length === 0) return;
 
   const winH = window.innerHeight;
   let activeColor = "#fff";
@@ -166,24 +177,22 @@ window.addEventListener('scroll', () => {
     const inView = rect.top < winH * 0.5 && rect.bottom > winH * 0.5;
 
     if (inView) {
-      if (sec.classList.contains("sec15")) {
-        activeColor = "#223A5E";   // ✅ 화이트 배경인 sec15에서만 네이비
+      if (sec.classList.contains("sec15") || sec.classList.contains("intro")) {
+        activeColor = "#223A5E";
       } else {
-        activeColor = "#fff";      // ✅ 그 외(네이비 포함)는 흰색
-      }
-      if (sec.classList.contains("intro")) {
-        activeColor = "#223A5E";   // ✅ 화이트 배경인 sec15에서만 네이비
-  
+        activeColor = "#fff";
       }
     }
   });
 
-  menuLinks.forEach(a =>
-    gsap.to(a, { color: activeColor, duration: 0.35, ease: "power2.out" })
-  );
-
-
-});
+  // 색상이 바뀔 때만 애니메이션 실행 (불필요한 호출 방지)
+  if (lastActiveColor !== activeColor) {
+    lastActiveColor = activeColor;
+    menuLinksCache.forEach(a =>
+      gsap.to(a, { color: activeColor, duration: 0.35, ease: "power2.out" })
+    );
+  }
+}, 50), { passive: true });
 
 
 
@@ -312,19 +321,20 @@ window.cardSwiper = new Swiper(".cardSwiper", {
   loop: true,
   centeredSlides: true,
   grabCursor: true,
-  
-watchSlidesProgress: true, //
+  watchSlidesProgress: true,
   slidesPerView: 1,
   spaceBetween: 30,
 
-  autoplay: {
-    delay: 0, // 쉬지 않고 흐름
+  // ✅ 모바일에서 autoplay 비활성화 (iOS 성능 문제)
+  autoplay: _isMobile ? false : {
+    delay: 0,
     disableOnInteraction: false,
   },
 
-  speed: 5000, // ✅ 드래그 시 부드러운 속도 (너무 빠르면 끊김 생김)
+  // ✅ 모바일에서 속도 줄임
+  speed: _isMobile ? 800 : 5000,
 
-    breakpoints: {
+  breakpoints: {
     0: { slidesPerView: 1 },
     768: { slidesPerView: 2 },
     1200: { slidesPerView: 3 }
@@ -332,10 +342,14 @@ watchSlidesProgress: true, //
 
   on: {
     init(swiper) {
-      swiper.wrapperEl.style.transitionTimingFunction = "linear";
+      if (!_isMobile) {
+        swiper.wrapperEl.style.transitionTimingFunction = "linear";
+      }
     },
     slideChangeTransitionStart(swiper) {
-      swiper.wrapperEl.style.transitionTimingFunction = "linear";
+      if (!_isMobile) {
+        swiper.wrapperEl.style.transitionTimingFunction = "linear";
+      }
     }
   }
 });
@@ -351,10 +365,12 @@ document.head.appendChild(style);
 
 
 /* ==============================
-   ✅ Lenis 모바일 부드러운 스크롤 강화
+   ✅ Lenis 모바일 최적화 (iOS 버벅임 방지)
 ============================== */
-lenis.options.smoothTouch = true;
-lenis.options.duration = 0.5;
+// smoothTouch는 iOS에서 버벅임을 유발하므로 비활성화 유지
+if (!_isMobile) {
+  lenis.options.duration = 0.5;
+}
 
 /* =========================
    SEC2 이미지 클릭 → 내부 텍스트 박스 열기
@@ -417,12 +433,13 @@ window.cardSwiper2 = new Swiper(".cardSwiper2", {
   slidesPerView: 1,
   spaceBetween: 30,
 
-  autoplay: {
+  // ✅ 모바일에서 autoplay 비활성화
+  autoplay: _isMobile ? false : {
     delay: 0,
     disableOnInteraction: false,
   },
 
-  speed: 5000,
+  speed: _isMobile ? 800 : 5000,
 
   breakpoints: {
     0: { slidesPerView: 1 },
@@ -432,10 +449,14 @@ window.cardSwiper2 = new Swiper(".cardSwiper2", {
 
   on: {
     init(swiper) {
-      swiper.wrapperEl.style.transitionTimingFunction = "linear";
+      if (!_isMobile) {
+        swiper.wrapperEl.style.transitionTimingFunction = "linear";
+      }
     },
     slideChangeTransitionStart(swiper) {
-      swiper.wrapperEl.style.transitionTimingFunction = "linear";
+      if (!_isMobile) {
+        swiper.wrapperEl.style.transitionTimingFunction = "linear";
+      }
     }
   }
 });

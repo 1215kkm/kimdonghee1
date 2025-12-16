@@ -1400,6 +1400,66 @@ transform: translate(-50%,-50%); z-index: 99999999; color: #fff;}
   }
 }
 
+/* ================================================
+   ✅ iOS Safari 전용 최적화 (아이폰 버벅임 방지)
+================================================ */
+@supports (-webkit-touch-callout: none) {
+  /* 1. 모든 transform을 GPU 가속에서 제외 */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  /* 2. 스크롤 성능 개선 */
+  html, body {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+
+  /* 3. 무거운 효과 제거 */
+  .blur-circle,
+  .visual-bg .blur-circle {
+    display: none !important;
+  }
+
+  /* 4. backdrop-filter 완전 제거 */
+  .card,
+  .slide-box,
+  .mobile-menu,
+  .cardSwiper .card,
+  .cardSwiper2 .card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* 5. 복잡한 그림자 단순화 */
+  .stack-card,
+  .card,
+  .slide-box {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+  }
+
+  /* 6. will-change 제거 (iOS 메모리 누수 방지) */
+  .stack-card,
+  .sec5,
+  .sec5-inner,
+  .card-text p {
+    will-change: auto !important;
+  }
+
+  /* 7. 터치 반응 개선 */
+  a, button, .card, .swiper-slide {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* 8. 3D 변환 비활성화 (iOS 렌더링 버그 방지) */
+  .slide-content {
+    transform-style: flat !important;
+    perspective: none !important;
+  }
+}
+
 
 
 
@@ -2645,33 +2705,67 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  
- 
+  /* ✅ iOS 버벅임 방지 - 핵심 최적화 */
 
-  /* 2. GPU 가속 제거 (모바일에서 렉 유발) */
+  /* 1. will-change 전역 제거 (GPU 메모리 과부하 방지) */
   * {
     will-change: auto !important;
   }
 
-    body {
+  /* 2. backdrop-filter 비활성화 (iOS에서 매우 무거움) */
+  .cursor-glass,
+  .card,
+  .slide-box,
+  .mobile-menu,
+  .scroll-top {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* 3. 무거운 blur/filter 제거 */
+  .blur-circle {
+    filter: none !important;
+    opacity: 0.3 !important;
+    animation: none !important;
+  }
+
+  /* 4. 폰트 렌더링 최적화 */
+  body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeSpeed;
   }
-   .card-list {
+
+  /* 5. 스크롤 스냅 제거 (iOS 충돌) */
+  .card-list {
     scroll-snap-type: none !important;
   }
-
   .card-list li {
     scroll-snap-align: none !important;
   }
 
-   img {
+  /* 6. 이미지 지연 로딩 */
+  img {
     content-visibility: auto;
   }
+
+  /* 7. 불필요한 요소 숨김 */
   .sec1-floaters,
   .cursor-glass {
     display: none !important;
+  }
+
+  /* 8. box-shadow 경량화 */
+  .card,
+  .slide-box,
+  .stack-card {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+  }
+
+  /* 9. CSS 애니메이션 성능 최적화 */
+  .blur-circle,
+  .sec1-floaters .ball {
+    animation: none !important;
   }
 }
 

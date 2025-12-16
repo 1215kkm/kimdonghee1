@@ -157,14 +157,17 @@ margin: 0; padding: 0;}                /* 부모 기준점 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.sec5,
-.sec5-inner,
-.stack-card,
-.stack-card img {
-  transform: translateZ(0);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+/* ✅ PC에서만 GPU 가속 사용 (모바일은 CSS에서 별도 처리) */
+@media (min-width: 769px) {
+  .sec5,
+  .sec5-inner,
+  .stack-card,
+  .stack-card img {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
 }
 
 .sec5::after {
@@ -193,12 +196,15 @@ margin: 0; padding: 0;}                /* 부모 기준점 */
   pointer-events: none;
 }
 
-.stack-card {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  will-change: transform, opacity;
+/* ✅ PC에서만 stack-card GPU 가속 */
+@media (min-width: 769px) {
+  .stack-card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
 }
 
 .sec5 .stack-card {
