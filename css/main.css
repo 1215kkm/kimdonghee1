@@ -1401,6 +1401,34 @@ transform: translate(-50%,-50%); z-index: 99999999; color: #fff;}
 }
 
 /* ================================================
+   ✅ iOS sec4/mosec4 영상 렉 방지
+================================================ */
+@supports (-webkit-touch-callout: none) {
+  .mosec4 video,
+  .sec4 video,
+  .video-mask video {
+    /* GPU 가속 비활성화 (iOS 영상 렉 원인) */
+    transform: none !important;
+    will-change: auto !important;
+
+    /* 영상 품질 최적화 */
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+
+    /* 하드웨어 디코딩 강제 */
+    -webkit-video-playable-inline: true;
+  }
+
+  .mosec4,
+  .video-mask {
+    /* 컨테이너 최적화 */
+    will-change: auto !important;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+}
+
+/* ================================================
    ✅ iOS Safari 전용 최적화 (Lenis + 버벅임 방지)
 ================================================ */
 @supports (-webkit-touch-callout: none) {

@@ -36,37 +36,37 @@ function throttle(fn, wait) {
 
 /* ===========================
    1️⃣ Lenis 부드러운 스크롤 (천천히 + 부드럽게 멈춤)
+
+   📍 수정 위치: js/custom.js 44~69번 줄
+   📍 iOS 속도 조절: duration, touchMultiplier, lerp 값 변경
 =========================== */
 const _isMobile = isMobile();
 const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 
 // ✅ 부드러운 감속 스크롤 설정
 window.lenis = new Lenis({
-  // 스크롤 지속 시간 (길수록 천천히) - iOS는 더 길게
-  duration: isIOS ? 1.6 : (_isMobile ? 1.3 : 1.4),
+  // 📍 duration: 숫자가 클수록 느림 (iOS: 2.0 권장)
+  duration: isIOS ? 2.0 : (_isMobile ? 1.5 : 1.4),
 
-  // ✅ 부드러운 감속 easing (더 부드러운 커브)
-  easing: (t) => 1 - Math.pow(1 - t, 5),  // ease-out-quint (더 부드러움)
+  // 📍 easing: 감속 커브 (숫자가 클수록 부드러움)
+  easing: (t) => 1 - Math.pow(1 - t, 6),  // ease-out-sextic (매우 부드러움)
 
-  // 부드러운 스크롤 활성화
   smooth: true,
   smoothTouch: _isMobile,
 
-  // 터치 민감도 (낮을수록 천천히) - iOS는 더 낮게
-  touchMultiplier: isIOS ? 0.8 : 1.2,
-  wheelMultiplier: 0.7,
+  // 📍 touchMultiplier: 숫자가 작을수록 느림 (iOS: 0.5 권장)
+  touchMultiplier: isIOS ? 0.5 : 1.0,
+  wheelMultiplier: 0.6,
 
-  // ✅ lerp: 낮을수록 더 부드럽게 따라감 - iOS는 더 낮게
-  lerp: isIOS ? 0.05 : (_isMobile ? 0.07 : 0.06),
+  // 📍 lerp: 숫자가 작을수록 더 부드럽게 따라감 (iOS: 0.03 권장)
+  lerp: isIOS ? 0.03 : (_isMobile ? 0.05 : 0.06),
 
-  // 기타 설정
   infinite: false,
   orientation: 'vertical',
   gestureOrientation: 'vertical',
 
-  // iOS 호환
   syncTouch: true,
-  syncTouchLerp: 0.04,
+  syncTouchLerp: 0.025,
 });
 
 const lenis = window.lenis;
