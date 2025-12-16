@@ -1401,25 +1401,32 @@ transform: translate(-50%,-50%); z-index: 99999999; color: #fff;}
 }
 
 /* ================================================
-   ✅ iOS Safari 전용 최적화 (아이폰 버벅임 방지)
+   ✅ iOS Safari 전용 최적화 (Lenis + 버벅임 방지)
 ================================================ */
 @supports (-webkit-touch-callout: none) {
-  /* 1. 모든 transform을 GPU 가속에서 제외 */
-  * {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+  /* 1. Lenis와 호환되는 스크롤 설정 */
+  html {
+    scroll-behavior: auto !important;  /* Lenis가 제어 */
   }
 
-  /* 2. 스크롤 성능 개선 */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  /* 2. 터치 스크롤 최적화 */
   html, body {
     -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+    overscroll-behavior: none;  /* 바운스 효과 제어 */
   }
 
-  /* 3. 무거운 효과 제거 */
-  .blur-circle,
-  .visual-bg .blur-circle {
-    display: none !important;
+  /* 3. 무거운 효과 경량화 (완전 제거 X) */
+  .blur-circle {
+    filter: blur(50px) !important;  /* blur 줄임 */
+    opacity: 0.2 !important;
   }
 
   /* 4. backdrop-filter 완전 제거 */
@@ -1439,7 +1446,7 @@ transform: translate(-50%,-50%); z-index: 99999999; color: #fff;}
     box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
   }
 
-  /* 6. will-change 제거 (iOS 메모리 누수 방지) */
+  /* 6. will-change 최소화 */
   .stack-card,
   .sec5,
   .sec5-inner,
@@ -1453,7 +1460,14 @@ transform: translate(-50%,-50%); z-index: 99999999; color: #fff;}
     touch-action: manipulation;
   }
 
-  /* 8. 3D 변환 비활성화 (iOS 렌더링 버그 방지) */
+  /* 8. Swiper 터치 영역 - Lenis와 분리 */
+  .mySwiper,
+  .cardSwiper,
+  .cardSwiper2 {
+    touch-action: pan-x !important;  /* 가로 스와이프만 허용 */
+  }
+
+  /* 9. 3D 변환 경량화 */
   .slide-content {
     transform-style: flat !important;
     perspective: none !important;

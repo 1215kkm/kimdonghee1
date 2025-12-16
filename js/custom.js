@@ -35,21 +35,59 @@ function throttle(fn, wait) {
 
 
 /* ===========================
-   1️⃣ Lenis 부드러운 스크롤 (모바일 안전 프리셋)
+   1️⃣ Lenis 부드러운 스크롤 (모바일 최적화 버전)
 =========================== */
 const _isMobile = isMobile();
+const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 
-// ✅ 전역으로도 잡아두면(로딩 stop/start 등) 나중에 제어하기 쉬움
+// ✅ 모바일/iOS 최적화된 Lenis 설정
 window.lenis = new Lenis({
-  duration: _isMobile ? 0.9 : 1.2, // 모바일은 짧게(답답함 방지)
-  easing: (t) => 1 - Math.pow(1 - t, 3),
+  // 모바일은 짧고 가볍게, PC는 부드럽게
+  duration: _isMobile ? 0.6 : 1.2,
+
+  // 모바일용 가벼운 easing (계산량 감소)
+  easing: _isMobile
+    ? (t) => t  // 선형 - 가장 가벼움
+    : (t) => 1 - Math.pow(1 - t, 3),
+
+  // ✅ 핵심: 모바일에서도 부드러운 스크롤 활성화
   smooth: true,
-  smoothTouch: false, // ✅ 모바일에서 "전체 터치 스무딩"은 끄는 쪽이 안정적
+  smoothTouch: _isMobile,  // 모바일에서 터치 스무딩 ON
+
+  // ✅ iOS 최적화 설정
+  touchMultiplier: isIOS ? 1.5 : 2,  // iOS는 터치 민감도 낮춤
+  wheelMultiplier: 1,
+
+  // ✅ 모바일 성능 최적화
+  lerp: _isMobile ? 0.15 : 0.1,  // 모바일은 빠른 반응 (0.1~1, 높을수록 빠름)
+
+  // infinite scroll 비활성화
+  infinite: false,
+
+  // 방향 설정
+  orientation: 'vertical',
+  gestureOrientation: 'vertical',
+
+  // ✅ 네이티브 스크롤바 사용 (iOS 호환성)
+  syncTouch: true,
+  syncTouchLerp: 0.075,
 });
 
 const lenis = window.lenis;
 
-// ScrollTrigger 동기화
+// ✅ iOS Safari 주소창 변화 대응
+if (isIOS) {
+  window.addEventListener('resize', () => {
+    lenis.resize();
+  });
+
+  // 방향 전환 시 리사이즈
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => lenis.resize(), 100);
+  });
+}
+
+// ScrollTrigger 동기화 (throttle 적용)
 if (typeof ScrollTrigger !== "undefined") {
   lenis.on("scroll", ScrollTrigger.update);
 }
@@ -365,11 +403,21 @@ document.head.appendChild(style);
 
 
 /* ==============================
-   ✅ Lenis 모바일 최적화 (iOS 버벅임 방지)
+   ✅ Lenis 모바일 터치 최적화
 ============================== */
-// smoothTouch는 iOS에서 버벅임을 유발하므로 비활성화 유지
-if (!_isMobile) {
-  lenis.options.duration = 0.5;
+// 모바일에서 특정 요소 스크롤 시 Lenis 일시 정지 (Swiper 충돌 방지)
+if (_isMobile) {
+  const swiperElements = document.querySelectorAll('.mySwiper, .cardSwiper, .cardSwiper2');
+
+  swiperElements.forEach(el => {
+    el.addEventListener('touchstart', () => {
+      lenis.stop();
+    }, { passive: true });
+
+    el.addEventListener('touchend', () => {
+      setTimeout(() => lenis.start(), 100);
+    }, { passive: true });
+  });
 }
 
 /* =========================
