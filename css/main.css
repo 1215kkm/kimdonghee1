@@ -1460,11 +1460,11 @@ transform: translate(-50%,-50%); z-index: 99999999; color: #fff;}
     touch-action: manipulation;
   }
 
-  /* 8. Swiper 터치 영역 - Lenis와 분리 */
+  /* 8. Swiper 터치 영역 - 가로/세로 모두 허용 */
   .mySwiper,
   .cardSwiper,
   .cardSwiper2 {
-    touch-action: pan-x !important;  /* 가로 스와이프만 허용 */
+    touch-action: pan-y pan-x !important;  /* 세로 스크롤도 허용 */
   }
 
   /* 9. 3D 변환 경량화 */

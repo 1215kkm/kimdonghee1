@@ -42,22 +42,22 @@ const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 
 // ✅ 부드러운 감속 스크롤 설정
 window.lenis = new Lenis({
-  // 스크롤 지속 시간 (길수록 천천히)
-  duration: _isMobile ? 1.2 : 1.4,
+  // 스크롤 지속 시간 (길수록 천천히) - iOS는 더 길게
+  duration: isIOS ? 1.6 : (_isMobile ? 1.3 : 1.4),
 
-  // ✅ 부드러운 감속 easing (cubic-bezier 느낌)
-  easing: (t) => 1 - Math.pow(1 - t, 4),  // ease-out-quart
+  // ✅ 부드러운 감속 easing (더 부드러운 커브)
+  easing: (t) => 1 - Math.pow(1 - t, 5),  // ease-out-quint (더 부드러움)
 
   // 부드러운 스크롤 활성화
   smooth: true,
   smoothTouch: _isMobile,
 
-  // 터치 민감도 (낮을수록 천천히)
-  touchMultiplier: isIOS ? 1.2 : 1.5,
-  wheelMultiplier: 0.8,
+  // 터치 민감도 (낮을수록 천천히) - iOS는 더 낮게
+  touchMultiplier: isIOS ? 0.8 : 1.2,
+  wheelMultiplier: 0.7,
 
-  // ✅ lerp: 낮을수록 더 부드럽게 따라감 (0.05~0.1 권장)
-  lerp: _isMobile ? 0.08 : 0.06,
+  // ✅ lerp: 낮을수록 더 부드럽게 따라감 - iOS는 더 낮게
+  lerp: isIOS ? 0.05 : (_isMobile ? 0.07 : 0.06),
 
   // 기타 설정
   infinite: false,
@@ -66,7 +66,7 @@ window.lenis = new Lenis({
 
   // iOS 호환
   syncTouch: true,
-  syncTouchLerp: 0.05,
+  syncTouchLerp: 0.04,
 });
 
 const lenis = window.lenis;
@@ -399,19 +399,39 @@ document.head.appendChild(style);
 
 
 /* ==============================
-   ✅ Lenis 모바일 터치 최적화
+   ✅ Lenis 모바일 터치 최적화 (가로/세로 구분)
 ============================== */
-// 모바일에서 특정 요소 스크롤 시 Lenis 일시 정지 (Swiper 충돌 방지)
+// 모바일에서 Swiper 가로 스와이프 시에만 Lenis 일시 정지
 if (_isMobile) {
   const swiperElements = document.querySelectorAll('.mySwiper, .cardSwiper, .cardSwiper2');
 
   swiperElements.forEach(el => {
-    el.addEventListener('touchstart', () => {
-      lenis.stop();
+    let startX = 0;
+    let startY = 0;
+    let isHorizontalSwipe = false;
+
+    el.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isHorizontalSwipe = false;
+    }, { passive: true });
+
+    el.addEventListener('touchmove', (e) => {
+      const diffX = Math.abs(e.touches[0].clientX - startX);
+      const diffY = Math.abs(e.touches[0].clientY - startY);
+
+      // 가로 스와이프가 더 크면 Lenis 정지
+      if (diffX > diffY + 10 && !isHorizontalSwipe) {
+        isHorizontalSwipe = true;
+        lenis.stop();
+      }
     }, { passive: true });
 
     el.addEventListener('touchend', () => {
-      setTimeout(() => lenis.start(), 100);
+      if (isHorizontalSwipe) {
+        setTimeout(() => lenis.start(), 150);
+      }
+      isHorizontalSwipe = false;
     }, { passive: true });
   });
 }
